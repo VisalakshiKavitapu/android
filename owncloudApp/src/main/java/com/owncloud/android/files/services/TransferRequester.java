@@ -216,6 +216,8 @@ public class TransferRequester {
                 // services and camera uploads feature may try to do it, this is the way to proceed
                 if (requestedFromWifiBackEvent) {
                     intent.putExtra(FileUploader.KEY_REQUESTED_FROM_WIFI_BACK_EVENT, true);
+                } else {
+                    intent.putExtra(FileUploader.KEY_CREATED_BY, upload.getCreatedBy());
                 }
                 Timber.d("Retry some uploads from foreground/background, startForeground() will be called soon");
                 context.startForegroundService(intent);
